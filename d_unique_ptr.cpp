@@ -7,7 +7,7 @@ struct Rectangle
     int breadth;
 };
 
-std::ostream &operator<<(std::ostream &os, const Rectangle &rec)
+std::ostream& operator<<(std::ostream& os, const Rectangle& rec)
 {
     os << "Rectangle: {length: " << rec.length << ", breadth: " << rec.breadth << "}";
     return os;
@@ -18,7 +18,7 @@ std::unique_ptr<Rectangle> swap(std::unique_ptr<Rectangle> rec)
     int tmp = rec->breadth;
     rec->breadth = rec->length;
     rec->length = tmp;
-    return rec;
+    return std::move(rec);
 }
 
 int main()

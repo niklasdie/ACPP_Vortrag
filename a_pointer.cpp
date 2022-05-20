@@ -16,7 +16,9 @@ int main()
     int num = 5;
     void* v_p = &num;
     // Pointer haben keinen Typen.
-    // Typen von Pointern helfen nur die Daten vom Pointer zu verstehen.
+    // Typen von Pointern helfen nur die Daten vom Pointer zu interpretieren.
+    // Auch benötigt man den Typen, um den Speicher zu manipulieren, da bei verschiedenen Datentypen die Datensätze
+    // unterschiedlich groß sind.
 
     std::cout << v_p;
     // 0x7fffc2324194

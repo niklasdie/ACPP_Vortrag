@@ -10,6 +10,7 @@ void fun()
     auto p = std::unique_ptr<Rectangle>(new Rectangle());
     auto p2 = std::make_unique<Rectangle>(); // bevorzugte Art
     // p wird hier automatisch vernichtet und jetzt wird auch der Speicher im Heap freigegeben.
+    // Bei diesem Konstrukt können weiterhin andere schwere Probleme auftreten.
 }
 
 int main()
