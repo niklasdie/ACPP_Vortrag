@@ -54,3 +54,20 @@ int main()
     // std::cout << "Reference Count: " << p.use_count() << std::endl;
     // Alle Referenzen von p sind out of scope, daher wird p von shared_ptr gelöscht.
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

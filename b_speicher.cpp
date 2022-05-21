@@ -16,3 +16,17 @@ int main()
 }
 
 // Nebenbei: new und delete sind Operatoren wie +, - oder =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
