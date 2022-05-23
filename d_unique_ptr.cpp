@@ -60,3 +60,16 @@ int main()
     // std::cout << p.get();
     // Scope von p ist zu ende, deshalb ist p von unique_ptr gelöscht worden.
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
