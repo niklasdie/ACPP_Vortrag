@@ -35,10 +35,24 @@ int main()
         // Rectangle: {length: 7, breadth: 12}
         {
             std::weak_ptr wp = swap(sp);
-            // shared_ptr haben kein Ownership, deshalb kann ich diesen einfach so übergeben
+            // weak_ptr erhöhen den RefCount von einem shared_ptr nicht.
+            /*
+                    +------------+              +----------+
+                    | shared_ptr |              | weak_ptr |        Ein weak_ptr nicht also nicht geeignet
+                    +------------+              +----------+        ihn als shared_ptr Alternative zu nutzen,
+                                 \              .                   so kann schnell wieder ein Dangling Pointer
+                                  \            .                    entstehen. Allerdings kann man ihn sehr gut als
+                                  \/          V                     Observer nutzen, um zu kontrollieren, ob das
+                                  +------------+                    Objekt eines shared_ptr noch existiert.
+                                  |   Object   |
+                                  +------------+
+            */
 
             std::cout << *wp.lock() << std::endl;
             // Rectangle: {length: 12, breadth: 7}
+            // Mit weak_ptr.lock() kann man einen shared_ptr erhalten, mit dem man dann wieder gut arbeiten kann,
+            // dieser erhöht dann den RefCount.
+            // auto sp2 = wp.lock();
 
             std::cout << wp.lock() << std::endl;
             // 0x55938ee9aeb0
@@ -48,16 +62,16 @@ int main()
             // Reference Count: 1
 
             sp.reset();
-            // Reference reset
+            // Reference reset -> RefCount auf 0
 
             std::cout << "Reference Count: " << sp.use_count() << std::endl;
             // Reference Count: 0
 
-            if (auto tmp = wp.lock())
+            if (wp.expired())
             {
-                std::cout << *tmp << std::endl;
+                std::cout << "sp is not expired";
             } else {
-                std::cout << "wp is expired\n";
+                std::cout << "sp is expired";
             }
             // weak_ptr bleibt bestehen, da er den Reference Count von dem shared_ptr nicht erhöht.
         }

@@ -13,7 +13,7 @@ int main()
 {
     // Infinite Loop, welcher immer wieder neuen Speicher im Heap allokiert, aber nicht freigibt,
     // so kann der "verbrauchte" Speicher nicht erneut genutzt werden und der Speicher läuft voll.
-    while (1) {
+    while (true) {
         fun();
     }
 }

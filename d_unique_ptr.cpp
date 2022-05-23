@@ -36,6 +36,18 @@ int main()
 
         up = swap(std::move(up));
         // unique_ptr müssen zusammen mit ihrem Ownership übergeben (gemoved) werden.
+        // Sie können also nicht kopiert werden.
+        /*
+              +--------------+              +--------------+
+              | unique_ptr 1 |              | unique_ptr 2 |
+              +--------------+              +--------------+      Wenn z.B. unique_ptr 2 out of scope läuft,
+                             \              /                     löscht er das Objekt und gibt diesen Speicher
+                              \            /                      frei. unique_ptr 1 zeigt jetzt auf einen Speicher
+                              \/          \/                      der freigegeben wurde (dangling pointer).
+                              +------------+
+                              |   Object   |
+                              +------------+
+         */
 
         std::cout << up.operator*() << std::endl;
         // Rectangle: {length: 12, breadth: 7}

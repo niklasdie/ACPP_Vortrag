@@ -17,7 +17,7 @@ int main()
 {
     // Infinite Loop, welcher immer wieder neuen Speicher allokiert, aber auch wieder freigibt,
     // so kann der Speicher nicht voll laufen.
-    while (1) {
+    while (true) {
         fun();
     }
 }
