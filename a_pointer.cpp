@@ -29,17 +29,5 @@ int main()
     delete p;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Ein Pointer hat keinen Besitzer (Ownership), eher einen Ersteller, welcher sich um den Pointer
+// und seinen Speicher kümmern sollte.

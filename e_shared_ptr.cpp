@@ -38,15 +38,15 @@ int main()
             // shared_ptr haben kein Ownership, deshalb kann ich diesen einfach so übergeben.
             // Sie haben einen Reference Count (RefCount/UseCount) der bei jeder "Kopie" erhöht wird.
             /*
-              +--------------+              +--------------+
-              | shared_ptr 1 |              | shared_ptr 2 |
-              +--------------+              +--------------+      Hier müssen beide shared_ptr out of scope
-                             \              /                     laufen, damit der RefCount auf 0 fällt,
-                              \            /                      erst dann wird das Objekt gelöscht und
-                              \/          \/                      dein Speicher freigegeben.
-                              +------------+
-                              |   Object   |
-                              +------------+
+                   +--------------+              +--------------+
+                   | shared_ptr 1 |              | shared_ptr 2 |
+                   +--------------+              +--------------+      Hier müssen beide shared_ptr out of scope
+                                  \              /                     laufen, damit der RefCount auf 0 fällt,
+                                   \            /                      erst dann wird das Objekt gelöscht und
+                                   \/          \/                      dein Speicher freigegeben. Also gibt es bei
+                                   +------------+                      einem shared_ptr keinen Besitzer (Ownership).
+                                   |   Object   |
+                                   +------------+
             */
 
             std::cout << inner_sp.operator*() << std::endl;
@@ -66,3 +66,6 @@ int main()
     // std::cout << "Reference Count: " << outer_sp.use_count() << std::endl;
     // Alle Referenzen von outer_sp sind out of scope (RefCount = 0), daher wird outer_sp gelöscht.
 }
+
+// shared_ptr haben sehr wenig Overhead, nie Nutzung ist trotzdem zu empfehlen.
+// Aufpassen muss man allerdings, wenn man mit mehreren Threads arbeitet (Thread Safe).

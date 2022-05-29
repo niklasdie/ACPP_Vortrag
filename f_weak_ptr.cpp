@@ -37,15 +37,15 @@ int main()
             std::weak_ptr wp = swap(sp);
             // weak_ptr erhöhen den RefCount von einem shared_ptr nicht.
             /*
-                    +------------+              +----------+
-                    | shared_ptr |              | weak_ptr |        Ein weak_ptr nicht also nicht geeignet
-                    +------------+              +----------+        ihn als shared_ptr Alternative zu nutzen,
-                                 \              .                   so kann schnell wieder ein Dangling Pointer
-                                  \            .                    entstehen. Allerdings kann man ihn sehr gut als
-                                  \/          V                     Observer nutzen, um zu kontrollieren, ob das
-                                  +------------+                    Objekt eines shared_ptr noch existiert.
-                                  |   Object   |
-                                  +------------+
+                   +------------+              +----------+
+                   | shared_ptr |              | weak_ptr |        Ein weak_ptr nicht also nicht geeignet
+                   +------------+              +----------+        ihn als shared_ptr Alternative zu nutzen,
+                                \              .                   so kann schnell wieder ein Dangling Pointer
+                                 \            .                    entstehen. Allerdings kann man ihn sehr gut als
+                                 \/          V                     Observer nutzen, um zu kontrollieren, ob das
+                                 +------------+                    Objekt eines shared_ptr noch existiert.
+                                 |   Object   |
+                                 +------------+
             */
 
             std::cout << *wp.lock() << std::endl;
@@ -77,19 +77,3 @@ int main()
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

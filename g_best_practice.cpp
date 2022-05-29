@@ -69,21 +69,3 @@ void share(std::shared_ptr<X>);             // "wird" Refcount beibehalten
 void reseat2(std::shared_ptr<X>&);          // "könnte" Pointer einem anderen Objekt zuweisen
 
 void may_share(const std::shared_ptr<X>&);  // "könnte" Refcount beibehalten
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
