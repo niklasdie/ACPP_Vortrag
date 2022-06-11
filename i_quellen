@@ -1,0 +1,10 @@
+Git: https://github.com/niklasdie/ACPP_Vortrag
+
+Quellen:
+https://en.cppreference.com/book/intro/smart_pointers
+https://en.cppreference.com/w/cpp/memory/unique_ptr
+https://en.cppreference.com/w/cpp/memory/shared_ptr
+https://en.cppreference.com/w/cpp/memory/weak_ptr
+https://stackoverflow.com/questions/417481/pointers-smart-pointers-or-shared-pointers
+https://stackoverflow.com/questions/106508/what-is-a-smart-pointer-and-when-should-i-use-one?rq=1
+https://stackoverflow.com/questions/10334511/why-do-c-libraries-and-frameworks-never-use-smart-pointers?rq=1

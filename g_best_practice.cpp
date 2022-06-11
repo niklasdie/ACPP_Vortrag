@@ -26,7 +26,7 @@ void b02()
 
 
 // b03
-// Akzeptiert nur ints, für die man das Ownership übertragen möchten
+// akzeptiert nur ints, für die man das Ownership übertragen möchten
 void g(std::unique_ptr<int>);
 
 // Akzeptiert nur ints, für die Sie bereit sind, das Ownership zu teilen
@@ -39,8 +39,6 @@ void h(const std::unique_ptr<int>&);
 // b04
 void sink(std::unique_ptr<X>);          // bekommt Ownership über X
 // Bei unique_ptr möchte man in der Regel das Ownership mitgeben.
-
-void uses(X*);                          // nutzt einfach nur X
 
 
 // b05
